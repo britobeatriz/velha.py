@@ -3,7 +3,7 @@ from time import sleep
 
 # menu 
 def menu():
-    print('Escolha uma das opções:\n1) Novo Jogo\n2) Instruçoes\n3)Sair')
+    print('Escolha uma das opções:\n1) Novo Jogo\n2) Instruçoes\n3) Historico\n4) Sair')
     print('Digite: ')
     opcao = int(input())
 
@@ -16,11 +16,18 @@ def menu():
         sleep(5)
         return menu()
     elif opcao == 3:
+        return historico()
+    elif opcao == 4:
         print('Saindo... XD')
     else:
         print('Escolha uma das opçoes acima!!!')
 #  #  #  #
 
+
+# historico
+def historico():
+    print(imprime_tabuleiro(tab))
+#  #  #  #
 
 def imprime_tabuleiro(tab):
 	print ("O status do tabuleiro é\n")

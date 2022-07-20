@@ -1,6 +1,16 @@
 import random
 from time import sleep
 
+tab = ["_"] * 9
+
+def imprime_tabuleiro(tab):
+	print ("O status do tabuleiro é\n")
+
+	for indice in range(len(tab)):
+		print (tab[indice], end=" ")
+		if indice == 2 or indice == 5 or indice == 8:
+			print ("")
+        
 # menu 
 def menu():
     print('Escolha uma das opções:\n1) Novo Jogo\n2) Instruçoes\n3) Historico\n4) Sair')
@@ -12,7 +22,10 @@ def menu():
         sleep(2)
         return imprime_tabuleiro(tab)
     elif opcao == 2:
-        print('Ao selecionar "Novo Jogo" você será direcionado a escolher os nomes dos\njogadores,após escolher os nomes será feito um sorteio para decidir\nquem começa. Para jogar, o jogador selecionado para começar precisa escolher\na posição em que irá jogar de acordo com os numeros e assim sucesivamente.\nO objetivodo jogo é fazer uma sequência de três símbolos iguais, seja em\nlinha vertical, horizontal ou diagonal, quem fizer primeiro vence o jogo.\n')
+        print('Ao selecionar "Novo Jogo" você iniciará um novo jogo.\nPara jogar, o jogador para começar precisa escolher\na posição em que irá jogar de acordo com os numeros\ne assim sucesivamente.O objetivo do jogo é fazer uma\nsequência de três símbolos iguais, seja em linha\nvertical, horizontal ou diagonal, quem fizer primeiro\nvence o jogo.\n')
+        print ("1 2 3")
+        print ("4 5 6")
+        print ("7 8 9")
         sleep(5)
         return menu()
     elif opcao == 3:
@@ -21,6 +34,7 @@ def menu():
         print('Saindo... XD')
     else:
         print('Escolha uma das opçoes acima!!!')
+menu()
 #  #  #  #
 
 
@@ -29,14 +43,6 @@ def historico():
     print(imprime_tabuleiro(tab))
 #  #  #  #
 
-def imprime_tabuleiro(tab):
-	print ("O status do tabuleiro é\n")
-
-	for indice in range(len(tab)):
-		print (tab[indice], end=" ")
-		if indice == 2 or indice == 5 or indice == 8:
-			print ("")
-        
 
 def verifica_tabuleiro(tab, jogador):
 	
@@ -88,17 +94,15 @@ def verifica_tabuleiro(tab, jogador):
 
 	return 0
 
-
 quantidade_escolhas = 0	
 
-tab = ["_"] * 9
 
 while True:
 
 	escolha = int(input("Qual é a sua escolha?"))
 
 	while tab[escolha-1] != "_":
-		print ("Sua escolha foi inválida! Veja como está o tabuleiro:")
+		print ("Sua escolha foi inválida! Veja como está o tabuleiro: ")
 		imprime_tabuleiro(tab)
 		escolha = int(input("Qual é a sua escolha? "))
 
@@ -128,12 +132,10 @@ while True:
 	imprime_tabuleiro(tab)
 
 if vencedor == 1:
-	print ("parabéns, você ganhou!")
+	print ("Parabéns, você ganhou!")
 elif vencedor == 2:
 	print ("Você perdeu, o computador ganhou!")
 else:
 	print ("Deu velha, ninguém venceu, foi empate!")
 
 imprime_tabuleiro(tab)
-
-menu()
